@@ -21,22 +21,42 @@
             <div>
                 <label for="name">Name:</label>
                 <input type="text" th:field="*{name}">
+                <span class="error"
+                      th:if="${#fields.hasErrors('name')}"
+                      th:errors="*{name}">
+                </span>
             </div>
             <div>
                 <label for="street">Street:</label>
                 <input type="text" th:field="*{street}">
+                <span class="error"
+                      th:if="${#fields.hasErrors('street')}"
+                      th:errors="*{street}">
+                </span>
             </div>
             <div>
                 <label for="city">City:</label>
                 <input type="text" th:field="*{city}">
+                <span class="error"
+                      th:if="${#fields.hasErrors('city')}"
+                      th:errors="*{city}">
+                </span>
             </div>
             <div>
                 <label for="state">State:</label>
                 <input type="text" th:field="*{state}">
+                <span class="error"
+                      th:if="${#fields.hasErrors('state')}"
+                      th:errors="*{state}">
+                </span>
             </div>
             <div>
                 <label for="zip">ZIP code:</label>
                 <input type="text" th:field="*{zip}">
+                <span class="error"
+                      th:if="${#fields.hasErrors('zip')}"
+                      th:errors="*{zip}">
+                </span>
             </div>
         </div>
         <div class="column" id="right-column">
@@ -44,14 +64,26 @@
             <div>
                 <label for="creditCardNumber">Credit card number:</label>
                 <input type="text" th:field="*{creditCardNumber}">
+                <span class="error"
+                      th:if="${#fields.hasErrors('creditCardNumber')}"
+                      th:errors="*{creditCardNumber}">
+                </span>
             </div>
             <div>
                 <label for="creditCardExpiration">Expiratiion:</label>
                 <input type="text" th:field="*{creditCardExpiration}">
+                <span class="error"
+                      th:if="${#fields.hasErrors('creditCardExpiration')}"
+                      th:errors="*{creditCardExpiration}">
+                </span>
             </div>
             <div>
                 <label for="creditCardCVV">CVV code:</label>
                 <input type="text" th:field="*{creditCardCVV}">
+                <span class="error"
+                      th:if="${#fields.hasErrors('creditCardCVV')}"
+                      th:errors="*{creditCardCVV}">
+                </span>
             </div>
         </div>
         <div class="clear_block"></div>

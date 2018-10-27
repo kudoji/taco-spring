@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styles/style.css}" />
+    <title>Taco cloud application</title>
+</head>
+<body>
+    <h1>Order your taco creations!</h1>
+    <img th:src="@{/images/taco_cloud.png}" />
+    <a th:href="@{/design}" id="another_taco" title="Open design new taco page">Design another taco</a>
+
+    <form id="order" method="POST" th:action="@{/orders}" th:object="${order}">
+        <div th:if="${#fields.hasErrors()}">
+            <span class="error">Please correct the problems below</span>
+        </div>
+
+        <div class="column">
+            <h3>Deliver my Taco to:</h3>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" th:field="*{name}">
+            </div>
+            <div>
+                <label for="street">Street:</label>
+                <input type="text" th:field="*{street}">
+            </div>
+            <div>
+                <label for="city">City:</label>
+                <input type="text" th:field="*{city}">
+            </div>
+            <div>
+                <label for="state">State:</label>
+                <input type="text" th:field="*{state}">
+            </div>
+            <div>
+                <label for="zip">ZIP code:</label>
+                <input type="text" th:field="*{zip}">
+            </div>
+        </div>
+        <div class="column" id="right-column">
+            <h3>Creadit card information:</h3>
+            <div>
+                <label for="creditCardNumber">Credit card number:</label>
+                <input type="text" th:field="*{creditCardNumber}">
+            </div>
+            <div>
+                <label for="creditCardExpiration">Expiratiion:</label>
+                <input type="text" th:field="*{creditCardExpiration}">
+            </div>
+            <div>
+                <label for="creditCardCVV">CVV code:</label>
+                <input type="text" th:field="*{creditCardCVV}">
+            </div>
+        </div>
+        <div class="clear_block"></div>
+
+        <input type="submit" value="Submit order" />
+    </form>
+</body>
+</html>

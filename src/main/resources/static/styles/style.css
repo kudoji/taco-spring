@@ -1,0 +1,20 @@
+.error{
+    color: red;
+    font-weight: bold;
+}
+
+.column{
+    width: 49%;
+    float: left;
+    border: 1px solid red;
+    padding: 10px;
+}
+
+#right-column{
+    margin-left: 10px;
+}
+
+.clear_block{
+    clear: both;
+    height: 10px;
+}

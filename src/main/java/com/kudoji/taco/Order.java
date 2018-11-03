@@ -3,19 +3,31 @@ package com.kudoji.taco;
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Data
+@Entity
+@Table(name = "orders")
 public class Order {
-    private List<Taco> tacos;
+    @ManyToMany(targetEntity = Taco.class)
+    private List<Taco> tacos = new ArrayList<>();
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private Date placedAt;
+
+    @PrePersist
+    private void placedAt(){
+        this.placedAt = new Date();
+    }
 
     @NotBlank(message = "Name is required")
     private String name;

@@ -12,9 +12,41 @@
 
     <form id="design" method="POST" th:object="${taco}">
         <div class="grid">
-            <div class="ingredient-group" id="type" th:each="type: ${ingredients}">
-                <h3 th:text="${type.key}"></h3>
-                <div th:each="ingredient: ${type.value}">
+            <div class="ingredient-group" id="wrap">
+                <h3>Designate your wrap:</h3>
+                <div th:each="ingredient: ${wrap}">
+                    <input name="ingredients" type="checkbox" th:id="${ingredient.id}" th:value="${ingredient.id}" />
+                    <label th:for="${ingredient.id}" th:text="${ingredient.name}"></label>
+                </div>
+            </div>
+
+            <div class="ingredient-group" id="protein">
+                <h3>Pick your protein:</h3>
+                <div th:each="ingredient: ${protein}">
+                    <input name="ingredients" type="checkbox" th:id="${ingredient.id}" th:value="${ingredient.id}" />
+                    <label th:for="${ingredient.id}" th:text="${ingredient.name}"></label>
+                </div>
+            </div>
+
+            <div class="ingredient-group" id="vegies">
+                <h3>Determine your veggies:</h3>
+                <div th:each="ingredient: ${vegies}">
+                    <input name="ingredients" type="checkbox" th:id="${ingredient.id}" th:value="${ingredient.id}" />
+                    <label th:for="${ingredient.id}" th:text="${ingredient.name}"></label>
+                </div>
+            </div>
+
+            <div class="ingredient-group" id="cheese">
+                <h3>Choose your cheese:</h3>
+                <div th:each="ingredient: ${cheese}">
+                    <input name="ingredients" type="checkbox" th:id="${ingredient.id}" th:value="${ingredient.id}" />
+                    <label th:for="${ingredient.id}" th:text="${ingredient.name}"></label>
+                </div>
+            </div>
+
+            <div class="ingredient-group" id="sauce">
+                <h3>Select your sauce:</h3>
+                <div th:each="ingredient: ${sauce}">
                     <input name="ingredients" type="checkbox" th:id="${ingredient.id}" th:value="${ingredient.id}" />
                     <label th:for="${ingredient.id}" th:text="${ingredient.name}"></label>
                 </div>
